@@ -12,8 +12,12 @@ router.route('/bars')
 router.route('/bars/new')
   .get(bars.new);
 
+router.route('/bars/:id/edit')
+  .get(bars.edit);
+
 router.route('/bars/:id')
-  .get(bars.show);
+  .get(bars.show)
+  .put(bars.update);
 
 router.route('/register')
   .get(registrations.new)

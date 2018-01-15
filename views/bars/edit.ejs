@@ -1,0 +1,213 @@
+<h1>Edit</h1>
+
+<div class="container">
+  <form method="POST" action="/bars/<%= bar.id %>">
+
+    <input type="hidden" name="_method" value="PUT">
+
+    <div class="form-group">
+      <label for="inputBarName" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputBarName" placeholder="Name of bar" name="name" value="<%= bar.name %>">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-2 mb-3">
+        <label for="inputDoorNumber">Door number</label>
+        <input type="text" class="form-control" id="inputDoorNumber" placeholder="Door number" name="address[line1]" value="<%= bar.address.line1 %>">
+        <div class="invalid-feedback">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="inputStreet">Street</label>
+        <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="address[line2]" value="<%= bar.address.line2 %>" required>
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="inputCity">Town/City</label>
+        <input type="text" class="form-control" id="inputCity" placeholder="Town/City" name="address[city]" value="<%= bar.address.city %>" required>
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="inputPostcode">Postcode</label>
+        <input type="number" class="form-control" id="inputPostcode" placeholder="Postcode" name="address[postcode]" value="<%= bar.address.postcode %>" required>
+        <div class="invalid-feedback">
+          Please provide a valid zip.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="inputTelephoneNumber">Telephone number</label>
+        <input type="number" class="form-control" id="inputTelephoneNumber" placeholder="Telephone number" name="telephone" value="<%= bar.telephone %>" required>
+        <div class="invalid-feedback">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="inputEmail">Email</label>
+        <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" value="<%= bar.email %>">
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-2 mb-3">
+        <label for="inputWebsite">Website</label>
+        <input type="text" class="form-control" id="inputWebsite" placeholder="Website" name="website" value="<%= bar.website %>">
+        <div class="invalid-feedback">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="inputFacebook">Facebook</label>
+        <input type="text" class="form-control" id="inputFacebook" placeholder="Facebook" name="facebook" value="<%= bar.facebook %>">
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="inputTwitter">Twitter</label>
+        <input type="text" class="form-control" id="inputTwitter" placeholder="Twitter" name="twitter" value="<%= bar.twitter %>">
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputDescription">Description</label>
+      <textarea class="form-control" id="inputDescription" rows="3" placeholder="A brief description of the bar" name="description" value="<%= bar.description %>"></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-check col-md-3 mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="inputProjector" name=" projector" value="true">
+        <label class="form-check-label" for="inputProjector">
+          Projector
+        </label>
+      </div>
+      <div class="form-check col-md-3 mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="inputHdtv" name="hdtv" value="true">
+        <label class="form-check-label" for="inputHdtv">
+          HDTV
+        </label>
+      </div>
+      <div class="form-check col-md-3 mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="input3dtv" name="tv3d" value="true">
+        <label class="form-check-label" for="input3dtv">
+          3DTV
+        </label>
+      </div>
+      <div class="form-check col-md-3 mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="inputSound" name="sound" value="true">
+        <label class="form-check-label" for="inputSound">
+          Sound
+        </label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-check col-md-3 mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="inputFood" name="food" value="true">
+        <label class="form-check-label" for="inputFood">
+          Food
+        </label>
+      </div>
+      <div class="form-check col-md-3 mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="inputWifi" name="wifi" value="true">
+        <label class="form-check-label" for="inputWifi">
+          Wifi
+        </label>
+      </div>
+      <div class="form-check col-md-3 mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="inputEnglish" name="englishSpoken" value="true">
+        <label class="form-check-label" for="inputEnglish">
+          English spoken
+        </label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label class="form-check-label">Opening hours</label>
+      <select class="form-control col-md-3 mb-3" id="exampleFormControlSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+        <option>00</option>
+      </select>:
+      <select class="form-control col-md-3 mb-3" id="exampleFormControlSelect2">
+        <option>00</option>
+        <option>15</option>
+        <option>30</option>
+        <option>45</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label class="form-check-label">Closing hours</label>
+      <select class="form-control col-md-3 mb-3" id="exampleFormControlSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+        <option>00</option>
+      </select>:
+      <select class="form-control col-md-3 mb-3" id="exampleFormControlSelect2">
+        <option>00</option>
+        <option>15</option>
+        <option>30</option>
+        <option>45</option>
+      </select>
+    </div>
+    <button>Update</button>
+  </form>
+</div>

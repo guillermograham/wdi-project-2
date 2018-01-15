@@ -28,7 +28,7 @@ function createRoute(req, res, next) {
     });
 }
 
-function showRoute(req, res, next) {
+function showRoute(req, res) {
   Bar
     .findById(req.params.id)
     .exec()
@@ -41,9 +41,43 @@ function showRoute(req, res, next) {
     });
 }
 
+function editRoute(req, res) {
+  Bar
+    .findById(req.params.id)
+    .exec()
+    .then((bar) => {
+      if(!bar) return res.status(404).end('Not found');
+      res.render('bars/edit', { bar });
+    })
+    .catch((err) => {
+      res.status(500).render('error', { err });
+    });
+}
+
+function updateRoute(req, res) {
+  Bar
+    .findById(req.params.id)
+    .exec()
+    .then((bar) => {
+      if(!bar) return res.status(404).send('Not found');
+
+      bar = Object.assign(bar, req.body);
+
+      return bar.save();
+    })
+    .then((bar) => {
+      res.redirect(`/bars/${bar.id}`);
+    })
+    .catch((err) => {
+      res.status(500).render('error', { err });
+    });
+}
+
 module.exports = {
   index: indexRoute,
   new: newRoute,
   create: createRoute,
-  show: showRoute
+  show: showRoute,
+  edit: editRoute,
+  update: updateRoute
 };
