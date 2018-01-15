@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
 
+const reviewSchema = new mongoose.Schema({
+  content: { type: String, required: true },
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+},{
+  timestamps: true
+});
+
 const barSchema = new mongoose.Schema({
   name: { type: String, required: true },
   rating: Number,
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   imageOne: String,
   imageTwo: String,
   imageThree: String,
@@ -23,26 +29,19 @@ const barSchema = new mongoose.Schema({
   description: String,
   metro: String,
   fixtures: [{ type: mongoose.Schema.ObjectId, ref: 'Match', required: true }],
-  numberScreens: { type: Number, required: true },
-  hdtv: { type: Boolean, required: true },
-  tv3d: { type: Boolean, required: true },
-  sound: { type: Boolean, required: true },
-  food: { type: Boolean, required: true },
-  wifi: { type: Boolean, required: true },
-  projector: { type: Boolean, required: true },
-  englishSpoken: { type: Boolean, required: true },
-  openHour: { type: String, required: true },
-  openMinute: { type: String, required: true },
-  closeHour: { type: String, required: true },
-  closeMinute: { type: String, required: true },
+  numberScreens: Number,
+  hdtv: Boolean,
+  tv3d: Boolean,
+  sound: Boolean,
+  food: Boolean,
+  wifi: Boolean,
+  projector: Boolean,
+  englishSpoken: Boolean,
+  openHour: String,
+  openMinute: String,
+  closeHour: String,
+  closeMinute: String,
   reviews: [ reviewSchema ]
-});
-
-const reviewSchema = new mongoose.Schema({
-  content: { type: String, required: true },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-},{
-  timestamps: true
 });
 
 module.exports = mongoose.model('Bar', barSchema);

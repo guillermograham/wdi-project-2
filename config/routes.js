@@ -1,15 +1,16 @@
 const router = require('express').Router();
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
+const bars = require('../controllers/bars');
 
 router.get('/', (req, res) => res.render('statics/index'));
 
-router.get('/bars/new', (req,res) => res.render('bars/new'));
+router.route('/bars')
+  .get(bars.index)
+  .post(bars.create);
 
-router.post('/bars', (req, res) => {
-  console.log(req.body);
-  res.redirect('/');
-});
+router.route('/bars/new')
+  .get(bars.new);
 
 router.route('/register')
   .get(registrations.new)
