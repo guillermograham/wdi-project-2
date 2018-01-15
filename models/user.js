@@ -12,7 +12,15 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema
-  .virtual
+  .virtual('passwordConfirmation')
+  .set(function setPasswordConfirmation(passwordConfirmation) {
+    this._passwordConfirmation = passwordConfirmation;
+  });
+
+userSchema.pre('validate', function checkPassword(next) {
+  if(this.isModified('password') && this._passwordConfirmation !== this.password) this.invalidate('passwordConfirmation', 'does not match');
+  next();
+});
 
 userSchema.pre('save', function hasPassword(next) {
   if(this.isModified('password')) {

@@ -4,8 +4,9 @@ const expressLayouts = require('express-ejs-layouts');
 const routes         = require('./config/routes');
 const mongoose       = require('mongoose');
 mongoose.Promise     = require('bluebird');
-const { port, env, dbURI } = require('./config/environment');
+const { port, env, dbURI, secret } = require('./config/environment');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 const app = express();
 
@@ -18,6 +19,11 @@ app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
 if(env === 'development') app.use(morgan('dev'));
 app.use(bodyParser.urlencoded());
+app.use(session({
+  secret: secret,
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use(routes);
 
