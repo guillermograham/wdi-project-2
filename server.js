@@ -7,6 +7,7 @@ mongoose.Promise     = require('bluebird');
 const { port, env, dbURI, secret } = require('./config/environment');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const authentication = require('./lib/authentication');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
+app.use(authentication);
 app.use(routes);
 
 app.listen(port, () => console.log(`Express is listening on port ${port}`));

@@ -11,7 +11,9 @@ const barSchema = new mongoose.Schema({
     line1: String,
     line2: { type: String, required: true },
     city: { type: String, required: true },
-    postcode: { type: Number, required: true }
+    postcode: { type: Number, required: true },
+    lat: Number,
+    lng: Number
   },
   website: String,
   facebook: String,
@@ -19,9 +21,8 @@ const barSchema = new mongoose.Schema({
   telephone: Number,
   email: String,
   description: String,
-  latLong: String,
   metro: String,
-  fixtures: Array,
+  fixtures: [{ type: mongoose.Schema.ObjectId, ref: 'Match', required: true }],
   numberScreens: { type: Number, required: true },
   hdtv: { type: Boolean, required: true },
   tv3d: { type: Boolean, required: true },

@@ -19,12 +19,18 @@
       <li class="nav-item">
         <a class="nav-link" href="/bars/new">Add bar</a>
       </li>
+    <% if(locals.isLoggedIn) { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Log Out</a>
+      </li>
+    <% } else { %>
       <li class="nav-item">
         <a class="nav-link" href="/login">Log In</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
+    <% } %>
     </ul>
   </div>
 </nav>
