@@ -73,11 +73,29 @@ function updateRoute(req, res) {
     });
 }
 
+function deleteRoute(req, res) {
+  Bar
+    .findById(req.params.id)
+    .exec()
+    .then((bar) => {
+      if(!bar) return res.status(404).send('Not found');
+
+      return bar.remove();
+    })
+    .then(() => {
+      res.redirect('/bars');
+    })
+    .catch((err) => {
+      res.status(500).render('error', { err });
+    });
+}
+
 module.exports = {
   index: indexRoute,
   new: newRoute,
   create: createRoute,
   show: showRoute,
   edit: editRoute,
-  update: updateRoute
+  update: updateRoute,
+  delete: deleteRoute
 };

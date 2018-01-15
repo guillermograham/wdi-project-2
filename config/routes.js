@@ -17,7 +17,8 @@ router.route('/bars/:id/edit')
 
 router.route('/bars/:id')
   .get(bars.show)
-  .put(bars.update);
+  .put(bars.update)
+  .delete(bars.delete);
 
 router.route('/register')
   .get(registrations.new)
