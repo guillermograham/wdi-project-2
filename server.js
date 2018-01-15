@@ -5,6 +5,7 @@ const routes         = require('./config/routes');
 const mongoose       = require('mongoose');
 mongoose.Promise     = require('bluebird');
 const { port, env, dbURI } = require('./config/environment');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.set('views', `${__dirname}/views`);
 app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
 if(env === 'development') app.use(morgan('dev'));
+app.use(bodyParser.urlencoded());
 
 app.use(routes);
 
