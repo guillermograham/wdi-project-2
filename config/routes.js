@@ -12,6 +12,9 @@ router.route('/bars')
 router.route('/bars/new')
   .get(bars.new);
 
+router.route('/bars/:id')
+  .get(bars.show);
+
 router.route('/register')
   .get(registrations.new)
   .post(registrations.create);

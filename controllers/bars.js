@@ -28,8 +28,22 @@ function createRoute(req, res, next) {
     });
 }
 
+function showRoute(req, res, next) {
+  Bar
+    .findById(req.params.id)
+    .exec()
+    .then((bar) => {
+      if(!bar) return res.status(404).end();
+      res.render('bars/show', { bar });
+    })
+    .catch(() => {
+      res.status(500).end();
+    });
+}
+
 module.exports = {
   index: indexRoute,
   new: newRoute,
-  create: createRoute
+  create: createRoute,
+  show: showRoute
 };

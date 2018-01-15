@@ -3,7 +3,7 @@
 <ul>
   <% bars.forEach((bar) => { %>
     <li>
-      <h2> <%= bar.name %>
+      <a href="/bars/<%= bar.id %>"><h2> <%= bar.name %> </h2></a>
     </li>
   <% }); %>
 </ul>
