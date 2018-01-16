@@ -1,3 +1,4 @@
+
 <h1><%= bar.name %></h1>
 
 <h3><%= bar.createdBy.username %></h3>
@@ -42,4 +43,31 @@
     <input type="hidden" name="_method" value="DELETE">
     <button>Delete</button>
   </form>
+<% } %>
+
+<section>
+  <h4>Reviews</h4>
+  <% bar.reviews.forEach((review) => { %>
+    <p><%= review.content %></p>
+    <small><%= review.createdBy.username %></small>
+
+    <% if(locals.isLoggedIn && review.belongsTo(user)) { %>
+      <form method="POST" action="/bars/<%= bar.id %>/reviews/<%= review.id %>">
+        <input type="hidden" name="_method" value="DELETE">
+        <button>Delete</button>
+      </form>
+    <% } %>
+  <% }) %>
+</section>
+
+<% if(locals.isLoggedIn) { %>
+  <section>
+    <h4>Write a review</h4>
+    <form method="POST" action="/bars/<%= bar.id %>/reviews">
+      <textarea name="content" id="content" placeholder="Review"></textarea>
+      <button class="button">Write a review</button>
+
+
+    </form>
+  </section>
 <% } %>

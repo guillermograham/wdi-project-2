@@ -17,6 +17,12 @@ router.route('/bars/new')
 router.route('/bars/:id/edit')
   .get(bars.edit);
 
+router.route('/bars/:id/reviews')
+  .post(bars.createReview);
+
+router.route('/bars/:id/reviews/:reviewId')
+  .delete(bars.deleteReview);
+
 router.route('/bars/:id')
   .get(bars.show)
   .put(bars.update)

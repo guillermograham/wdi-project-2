@@ -7,6 +7,11 @@ const reviewSchema = new mongoose.Schema({
   timestamps: true
 });
 
+reviewSchema.methods.belongsTo = function belongsTo(user) {
+  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
+  return user.id === this.createdBy.toString();
+};
+
 const barSchema = new mongoose.Schema({
   name: { type: String, required: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },

@@ -33,12 +33,11 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Bar
     .findById(req.params.id)
-    .populate('createdBy fixtures')
+    .populate('createdBy fixtures reviews.createdBy')
     .exec()
     .then((bar) => {
-      console.log(bar);
-      if(!bar) res.notFound();
-      res.render('bars/show', { bar });
+      if(!bar) return res.notFound();
+      return res.render('bars/show', { bar });
     })
     .catch(next);
 }
@@ -93,6 +92,37 @@ function deleteRoute(req, res) {
     });
 }
 
+function createReviewRoute(req, res, next) {
+  req.body.createdBy = req.user;
+
+  Bar
+    .findById(req.params.id)
+    .exec()
+    .then((bar) => {
+      if(!bar) return res.notFound();
+
+      bar.reviews.push(req.body);
+      return bar.save();
+    })
+    .then((bar) => res.redirect(`/bars/${bar.id}`))
+    .catch(next);
+}
+
+function deleteReviewRoute(req, res, next) {
+  Bar
+    .findById(req.params.id)
+    .exec()
+    .then((bar) => {
+      if(!bar) return res.notFound();
+
+      const review = bar.reviews.id(req.params.reviewId);
+      review.remove();
+      return bar.save();
+    })
+    .then((bar) => res.redirect(`/bars/${bar.id}`))
+    .catch(next);
+}
+
 module.exports = {
   index: indexRoute,
   new: newRoute,
@@ -100,5 +130,7 @@ module.exports = {
   show: showRoute,
   edit: editRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  createReview: createReviewRoute,
+  deleteReview: deleteReviewRoute
 };
