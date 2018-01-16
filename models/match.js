@@ -8,4 +8,13 @@ const matchSchema = new mongoose.Schema({
   awayTeam: { type: String, required: true }
 });
 
+// matchSchema.virtual('screeningBars', {
+//   ref: 'Bar',
+//   localField: '_id',
+//   foreignField: 'fixtures'
+// })
+//   .set(function setScreeningBars(screeningBars) {
+//     this._screeningBars = screeningBars;
+//   });
+
 module.exports = mongoose.model('Match', matchSchema);

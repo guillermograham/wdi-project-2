@@ -8,7 +8,9 @@
       <%= match.date %>
       <%= match.homeTeam %>
       <%= match.awayTeam %>
+      <a href="/matches/<%= match.id %>">View Match</a>
       <a href="/matches/<%= match.id %>/new">Show this match</a>
+      <%= match %>
     </li>
   <% }) %>
 </ul>

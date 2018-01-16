@@ -35,6 +35,9 @@ router.route('/matches/new')
   .get(matches.new)
   .post(matches.create);
 
+router.route('/matches/:id')
+  .get(matches.show);
+
 router.route('/matches/:id/new')
   .get(screenings.new);
 
