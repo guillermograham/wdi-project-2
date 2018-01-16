@@ -33,7 +33,7 @@ function createRoute(req, res, next) {
 function showRoute(req, res) {
   Bar
     .findById(req.params.id)
-    .populate('fixtures')
+    .populate('createdBy fixtures')
     .exec()
     .then((bar) => {
       console.log(bar);
@@ -50,7 +50,8 @@ function editRoute(req, res) {
     .findById(req.params.id)
     .exec()
     .then((bar) => {
-      if(!bar) return res.status(404).end('Not found');
+      if(!bar) return res.redirect();
+      if(!bar.belongsTo(req.user)) return res.unauthorized(`/hotels/${bar.id}`, 'You do not have permission to edit that resource');
       res.render('bars/edit', { bar });
     })
     .catch((err) => {
