@@ -2,6 +2,8 @@ const router = require('express').Router();
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const bars = require('../controllers/bars');
+const matches = require('../controllers/matches');
+const screenings = require('../controllers/screenings');
 
 router.get('/', (req, res) => res.render('statics/index'));
 
@@ -19,6 +21,19 @@ router.route('/bars/:id')
   .get(bars.show)
   .put(bars.update)
   .delete(bars.delete);
+
+router.route('/matches')
+  .get(matches.index);
+
+router.route('/matches/new')
+  .get(matches.new)
+  .post(matches.create);
+
+router.route('/matches/:id/new')
+  .get(screenings.new);
+
+router.route('/screenings/:id/add')
+  .put(screenings.addScreening);
 
 router.route('/register')
   .get(registrations.new)

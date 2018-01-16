@@ -14,6 +14,8 @@ function indexRoute(req, res, next) {
 }
 
 function createRoute(req, res, next) {
+
+  console.log(req.currentUser);
   // creating a new property on req.body, making it the same as req.user, which was defined during authentication (see lib folder)
   req.body.createdBy = req.user;
 
@@ -31,8 +33,10 @@ function createRoute(req, res, next) {
 function showRoute(req, res) {
   Bar
     .findById(req.params.id)
+    .populate('fixtures')
     .exec()
     .then((bar) => {
+      console.log(bar);
       if(!bar) return res.status(404).end();
       res.render('bars/show', { bar });
     })

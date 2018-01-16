@@ -7,6 +7,7 @@ mongoose.Promise     = require('bluebird');
 const { port, env, dbURI, secret } = require('./config/environment');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const flash = require('express-flash');
 const authentication = require('./lib/authentication');
 const methodOverride = require('method-override');
 
@@ -26,6 +27,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+app.use(flash());
 
 app.use(methodOverride((req) => {
   if(req.body && typeof req.body === 'object' && '_method' in req.body) {

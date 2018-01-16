@@ -1,0 +1,21 @@
+<form action="/screenings/<%= matchId %>/add" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="barId">
+
+
+
+
+    <% bars.forEach((bar) => { %>
+
+    <option value="<%= bar.id %>"><%= bar.name %></option>
+
+    <% }) %>
+
+    </select>
+  </div>
+  <button>Confirm</button>
+</form>
+
+    <h3><%= matchId %></h3>

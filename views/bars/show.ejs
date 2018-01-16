@@ -1,8 +1,45 @@
-<h1> <%= bar.name %></h1>
+<h1><%= bar.name %></h1>
 
-<a href="/bars/<%= bar.id %>/edit">Edit</a>
+<h3><%= bar.createdBy %></h3>
 
-<form action="/bars/<%= bar.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <button>Delete</button>
-</form>
+<h4><%= bar.address.line1 %></h4>
+<h4><%= bar.address.line2 %></h4>
+<h4><%= bar.address.city %></h4>
+<h4><%= bar.address.postcode %></h4>
+<a href="<%= bar.website %>"><h4>Website</h4></a>
+<h4><%= bar.facebook %></h4>
+<h4><%= bar.twitter %></h4>
+<h4><%= bar.telephone %></h4>
+<h4><%= bar.email %></h4>
+<h4><%= bar.description %></h4>
+<h4>Fixtures: <%= bar.fixtures %></h4>
+<h4><%= bar.metro %></h4>
+<h4><%= bar.hdtv %></h4>
+<h4><%= bar.tv3d %></h4>
+<h4><%= bar.sound %></h4>
+<h4><%= bar.food %></h4>
+<h4><%= bar.wifi %></h4>
+<h4><%= bar.projector %></h4>
+<h4><%= bar.englishSpoken %></h4>
+<h4><%= bar.openHour %></h4>
+<h4><%= bar.openMinute %></h4>
+<h4><%= bar.closeHour %></h4>
+<h4><%= bar.closeMinute %></h4>
+
+<% bar.fixtures.forEach((fixture) => { %>
+
+  <p><%= fixture.homeTeam %></p>
+  <p><%= fixture.awayTeam %></p>
+  <p><%= fixture.date %></p>
+
+<% }) %>
+
+
+<% if(locals.isLoggedIn && bar.belongsTo(user)) { %>
+  <a href="/bars/<%= bar.id %>/edit">Edit</a>
+
+  <form action="/bars/<%= bar.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button>Delete</button>
+  </form>
+<% } %>

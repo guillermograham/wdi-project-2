@@ -10,14 +10,14 @@ function sessionsCreate(req, res, next) {
     .exec()
     .then((user) => {
       if(!user || !user.validatePassword(req.body.password)) {
-        // req.flash('danger', 'Unknown email/password combination');
+        req.flash('danger', 'Unknown email/password combination');
         return res.redirect('/login');
       }
 
       req.session.userId = user.id;
       req.user = user;
 
-      // req.flash('info', 'Welcome back, ${user.username}!');
+      req.flash('info', `Welcome back, ${user.username}!`);
       res.redirect('/');
     })
     .catch(next);

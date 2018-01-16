@@ -9,6 +9,7 @@ const reviewSchema = new mongoose.Schema({
 
 const barSchema = new mongoose.Schema({
   name: { type: String, required: true },
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   rating: Number,
   imageOne: String,
   imageTwo: String,
@@ -30,18 +31,27 @@ const barSchema = new mongoose.Schema({
   metro: String,
   fixtures: [{ type: mongoose.Schema.ObjectId, ref: 'Match', required: true }],
   numberScreens: Number,
-  hdtv: Boolean,
-  tv3d: Boolean,
-  sound: Boolean,
-  food: Boolean,
-  wifi: Boolean,
-  projector: Boolean,
-  englishSpoken: Boolean,
+  hdtv: { type: Boolean, default: false },
+  tv3d: { type: Boolean, default: false },
+  sound: { type: Boolean, default: false },
+  food: { type: Boolean, default: false },
+  wifi: { type: Boolean, default: false },
+  projector: { type: Boolean, default: false },
+  englishSpoken: { type: Boolean, default: false },
   openHour: String,
   openMinute: String,
   closeHour: String,
   closeMinute: String,
   reviews: [ reviewSchema ]
 });
+
+barSchema.methods.belongsTo = function belongsTo(user) {
+
+  //check if the user who created the bar is the same as the person who is logged in
+  // 'this' is the instance of the hotel that we are calling the 'belongsTo' method on
+  //'user' is the user object that we will pass this method (the user who is logged in)
+  // will return a boolean value
+  return this.createdBy.id === user.id;
+};
 
 module.exports = mongoose.model('Bar', barSchema);

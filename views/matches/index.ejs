@@ -1,0 +1,14 @@
+<a href="/matches/new">Add new match</a>
+
+<ul>
+  <% matches.forEach((match) => { %>
+    <li>
+      <%= match.sport %>
+      <%= match.competition %>
+      <%= match.date %>
+      <%= match.homeTeam %>
+      <%= match.awayTeam %>
+      <a href="/matches/<%= match.id %>/new">Show this match</a>
+    </li>
+  <% }) %>
+</ul>
