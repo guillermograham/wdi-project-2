@@ -1,43 +1,59 @@
 <div class="container">
-  <form method="POST" action="/bars">
-    <div class="form-row">
-      <div class="col-lg-5">
-        <label>Name</label>
-        <input type="text" id="inputBarName" class="form-control" placeholder="Name of bar" name="name">
+  <div class="newBar">
+    <form method="POST" action="/bars">
+      <div class="form-row">
+        <div class="col-lg-5">
+          <label>Name</label>
+          <input type="text" id="inputBarName" class="form-control" placeholder="Name of bar" name="name">
+        </div>
       </div>
+      <div class="form-row">
+        <div class="col-lg-2 col-md-2 mb-3">
+          <label for="inputDoorNumber">Door number</label>
+          <input type="text" class="form-control" id="inputDoorNumber" placeholder="Door number" name="address[line1]">
+        </div>
+        <div class="col-lg-3 col-md-3 mb-3">
+          <label for="inputStreet">Street</label>
+          <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="address[line2]" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-lg-3 col-md-3 mb-3">
+          <label for="inputCity">Town/City</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Town/City" name="address[city]" required>
+        </div>
+        <div class="col-lg-2 col-md-3 mb-3">
+          <label for="inputPostcode">Postcode</label>
+          <input type="number" class="form-control" id="inputPostcode" placeholder="Postcode" name="address[postcode]" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-lg-5 col-md-2 mb-3">
+          <label for="inputWebsite">Website</label>
+          <input type="text" class="form-control" id="inputWebsite" placeholder="Website" name="website">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-lg-5">
+          <label for="inputDescription">Description</label>
+          <textarea class="form-control" id="inputDescription" rows="6" placeholder="A brief description of the bar" name="description"></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="lat">Latitude</label>
+          <input type="text" name="address[lat]" id="lat" required>
+        </div>
+        <div>
+          <label for="lng">Longitude</label>
+          <input type="text" name="address[lng]" id="lng" required>
+        </div>
+      </div>
+      <button>Submit</button>
+    </form>
+    <div class="map">
+
     </div>
-    <div class="form-row">
-      <div class="col-lg-2 col-md-2 mb-3">
-        <label for="inputDoorNumber">Door number</label>
-        <input type="text" class="form-control" id="inputDoorNumber" placeholder="Door number" name="address[line1]">
-      </div>
-      <div class="col-lg-3 col-md-3 mb-3">
-        <label for="inputStreet">Street</label>
-        <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="address[line2]" required>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-lg-3 col-md-3 mb-3">
-        <label for="inputCity">Town/City</label>
-        <input type="text" class="form-control" id="inputCity" placeholder="Town/City" name="address[city]" required>
-      </div>
-      <div class="col-lg-2 col-md-3 mb-3">
-        <label for="inputPostcode">Postcode</label>
-        <input type="number" class="form-control" id="inputPostcode" placeholder="Postcode" name="address[postcode]" required>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-lg-5 col-md-2 mb-3">
-        <label for="inputWebsite">Website</label>
-        <input type="text" class="form-control" id="inputWebsite" placeholder="Website" name="website">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-lg-5">
-        <label for="inputDescription">Description</label>
-        <textarea class="form-control" id="inputDescription" rows="6" placeholder="A brief description of the bar" name="description"></textarea>
-      </div>
-    </div>
-    <button>Submit</button>
-  </form>
+  </div>
+
 </div>
