@@ -1,0 +1,9 @@
+<div class="col-lg-3">
+  <h3><%= match.competition %></h3>
+  <h3><%= moment(match.date).format('Do MMM YYYY') %></h3>
+  <h3><%= moment(match.date).format('h:mm a') %></h3>
+  <h3><%= match.homeTeam %></h3>
+  <h3><%= match.awayTeam %></h3>
+  <a href="/matches/<%= match.id %>">View Match</a>
+  <a href="/matches/<%= match.id %>/new">Show this match</a>
+</div>
