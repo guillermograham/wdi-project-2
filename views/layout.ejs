@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>WDI Project 2</title>
-        <% include ./partials/_stylesheets.ejs %>
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/app.js" charset="utf-8"></script>
-  </head>
-  <body>
-    
-    <% include ./partials/_navbar %>
-    <main class="container">
-      <% for(const type in messages) { %>
-        <p class="alert alert-<%= type %>"><%= messages[type] %></p>
+<head>
+  <meta charset="utf-8">
+  <title>WDI Project 2</title>
+  <% include ./partials/_stylesheets.ejs %>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js" charset="utf-8"></script>
+</head>
+<body>
+
+  <% include ./partials/_navbar %>
+  <main class="container">
+    <% for(const type in messages) { %>
+      <p class="alert alert-<%= type %>"><%= messages[type] %></p>
       <% } %>
       <%- body %>
     </main>
+
   </body>
 
-      <% include ./partials/_scripts.ejs %>
-</html>
+  <% include ./partials/_scripts.ejs %>
+  </html>

@@ -1,49 +1,28 @@
+<div class="container">
+  <% if(locals.isLoggedIn && bar.belongsTo(user)) { %>
+    <a href="/bars/<%= bar.id %>/edit">Edit</a>
 
-<h1><%= bar.name %></h1>
+    <form action="/bars/<%= bar.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <button>Delete</button>
+    </form>
+  <% } %>
+  <h1><%= bar.name %></h1>
+  <span><%= bar.address.line1 %></span> <span><%= bar.address.line2 %></span>, <span><%= bar.address.city %></span>, <span><%= bar.address.postcode %></span>
+  <a href="<%= bar.website %>"><h4>Website</h4></a>
+  <img src="<%= bar.imageOne %>" alt="bar.name">
+  <p><%= bar.description %></p>
+  <div class="row">
+    <% bar.fixtures.forEach((fixture) => { %>
+      <div class="col-lg-3">
+      <p><%= fixture.homeTeam %></p>
+      <p><%= fixture.awayTeam %></p>
+      <p><%= fixture.date %></p>
+      </div>
+    <% }) %>
 
-<h3><%= bar.createdBy.username %></h3>
-
-<h4><%= bar.address.line1 %></h4>
-<h4><%= bar.address.line2 %></h4>
-<h4><%= bar.address.city %></h4>
-<h4><%= bar.address.postcode %></h4>
-<a href="<%= bar.website %>"><h4>Website</h4></a>
-<h4><%= bar.facebook %></h4>
-<h4><%= bar.twitter %></h4>
-<h4><%= bar.telephone %></h4>
-<h4><%= bar.email %></h4>
-<h4><%= bar.description %></h4>
-<h4>Fixtures: <%= bar.fixtures %></h4>
-<h4><%= bar.metro %></h4>
-<h4><%= bar.hdtv %></h4>
-<h4><%= bar.tv3d %></h4>
-<h4><%= bar.sound %></h4>
-<h4><%= bar.food %></h4>
-<h4><%= bar.wifi %></h4>
-<h4><%= bar.projector %></h4>
-<h4><%= bar.englishSpoken %></h4>
-<h4><%= bar.openHour %></h4>
-<h4><%= bar.openMinute %></h4>
-<h4><%= bar.closeHour %></h4>
-<h4><%= bar.closeMinute %></h4>
-
-<% bar.fixtures.forEach((fixture) => { %>
-
-  <p><%= fixture.homeTeam %></p>
-  <p><%= fixture.awayTeam %></p>
-  <p><%= fixture.date %></p>
-
-<% }) %>
-
-
-<% if(locals.isLoggedIn && bar.belongsTo(user)) { %>
-  <a href="/bars/<%= bar.id %>/edit">Edit</a>
-
-  <form action="/bars/<%= bar.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <button>Delete</button>
-  </form>
-<% } %>
+  </div>
+</div>
 
 <section>
   <h4>Reviews</h4>

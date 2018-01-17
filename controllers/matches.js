@@ -6,6 +6,7 @@ function newRoute(req, res) {
 }
 
 function indexRoute(req, res, next) {
+  console.log(req.query);
   Match
     .find()
     .populate('screeningBars')
@@ -37,9 +38,31 @@ function createRoute(req, res, next) {
     });
 }
 
+function searchRoute(req, res, next) {
+  let query = null;
+  if (req.query.homeTeam){
+    query = req.query.homeTeam;
+    // query.awayTeam = req.query.homeTeam;
+  }
+  Match
+    .find({ homeTeam: query })
+    .exec()
+    .then(homeMatches => {
+      Match
+        .find({ awayTeam: query })
+        .then(awayMatches => {
+          res.render('matches/search', { homeMatches, awayMatches });
+        })
+        .catch(next);
+    });
+
+}
+
+
 module.exports = {
   new: newRoute,
   index: indexRoute,
   show: showRoute,
-  create: createRoute
+  create: createRoute,
+  search: searchRoute
 };

@@ -4,5 +4,5 @@
 <%= bars %>
 
 <% bars.forEach(bar => { %>
-  <h1><%= bar.name %></h1>
+  <a href="/bars/<%= bar.id %>"><h2><%= bar.name %></h2></a>
 <% }) %>

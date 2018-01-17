@@ -48,7 +48,7 @@ function editRoute(req, res) {
     .exec()
     .then((bar) => {
       if(!bar) return res.redirect();
-      if(!bar.belongsTo(req.user)) return res.unauthorized(`/hotels/${bar.id}`, 'You do not have permission to edit that resource');
+      if(!bar.belongsTo(req.user)) return res.unauthorized(`/bars/${bar.id}`, 'You do not have permission to edit that resource');
       res.render('bars/edit', { bar });
     })
     .catch((err) => {

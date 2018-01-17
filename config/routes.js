@@ -4,6 +4,7 @@ const sessions = require('../controllers/sessions');
 const bars = require('../controllers/bars');
 const matches = require('../controllers/matches');
 const screenings = require('../controllers/screenings');
+const secureRoute = require('../lib/secureRoute');
 
 router.get('/', (req, res) => res.render('statics/index'));
 
@@ -12,7 +13,7 @@ router.route('/bars')
   .post(bars.create);
 
 router.route('/bars/new')
-  .get(bars.new);
+  .get(secureRoute, bars.new);
 
 router.route('/bars/:id/edit')
   .get(bars.edit);
@@ -43,6 +44,9 @@ router.route('/matches/:id/new')
 
 router.route('/screenings/:id/add')
   .put(screenings.addScreening);
+
+router.route('/search')
+  .get(matches.search);
 
 router.route('/register')
   .get(registrations.new)

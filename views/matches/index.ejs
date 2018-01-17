@@ -1,16 +1,15 @@
 <a href="/matches/new">Add new match</a>
-
-<ul>
-  <% matches.forEach((match) => { %>
-    <li>
-      <%= match.sport %>
-      <%= match.competition %>
-      <%= match.date %>
-      <%= match.homeTeam %>
-      <%= match.awayTeam %>
-      <a href="/matches/<%= match.id %>">View Match</a>
-      <a href="/matches/<%= match.id %>/new">Show this match</a>
-      <%= match %>
-    </li>
-  <% }) %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% matches.forEach((match) => { %>
+      <div class="col-lg-3">
+        <h3><%= match.competition %></h3>
+        <h3><%= match.date %></h3>
+        <h3><%= match.homeTeam %></h3>
+        <h3><%= match.awayTeam %></h3>
+        <a href="/matches/<%= match.id %>">View Match</a>
+        <a href="/matches/<%= match.id %>/new">Show this match</a>
+      </div>
+    <% }) %>
+  </div>
+</div>

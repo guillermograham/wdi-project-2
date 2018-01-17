@@ -1,0 +1,11 @@
+
+<% homeMatches.forEach((homeMatch) => { %>
+  <p><%= homeMatch.homeTeam %></p>
+  <p><%= homeMatch.awayTeam %></p>
+  <p><%= homeMatch.date %></p>
+  <a href="/matches/<%= homeMatch.id %>">View Match</a>
+<% }) %>
+
+<% awayMatches.forEach((awayMatch) => { %>
+  <p><%= awayMatch %></p>
+<% }) %>
