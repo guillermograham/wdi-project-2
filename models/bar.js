@@ -56,7 +56,8 @@ barSchema.methods.belongsTo = function belongsTo(user) {
   // 'this' is the instance of the hotel that we are calling the 'belongsTo' method on
   //'user' is the user object that we will pass this method (the user who is logged in)
   // will return a boolean value
-  return this.createdBy.id === user.id;
+  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
+  return user.id === this.createdBy.toString();  
 };
 
 module.exports = mongoose.model('Bar', barSchema);
