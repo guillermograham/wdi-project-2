@@ -1,10 +1,11 @@
-<a href="/matches/new">Add new match</a>
+<h2>Matches</h2>
 <div class="container">
   <div class="row">
     <% matches.forEach((match) => { %>
       <div class="col-lg-3">
         <h3><%= match.competition %></h3>
-        <h3><%= match.date %></h3>
+        <h3><%= moment(match.date).format('Do MMM YYYY') %></h3>
+        <h3><%= moment(match.date).format('h:mm a') %></h3>
         <h3><%= match.homeTeam %></h3>
         <h3><%= match.awayTeam %></h3>
         <a href="/matches/<%= match.id %>">View Match</a>
@@ -13,3 +14,4 @@
     <% }) %>
   </div>
 </div>
+<a href="/matches/new">Add new match</a>

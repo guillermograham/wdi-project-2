@@ -12,6 +12,7 @@ const authentication = require('./lib/authentication');
 const methodOverride = require('method-override');
 const errorHandler = require('./lib/errorHandler');
 const customResponses = require('./lib/customResponses');
+const moment = require('moment');
 
 const app = express();
 
@@ -24,6 +25,8 @@ app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
 if(env === 'development') app.use(morgan('dev'));
 
+
+app.locals.moment = moment;
 app.use(customResponses);
 app.use(bodyParser.urlencoded());
 app.use(session({
