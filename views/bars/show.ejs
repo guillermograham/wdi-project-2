@@ -1,19 +1,35 @@
 <div class="container">
   <div class="showBar">
-    <% if(locals.isLoggedIn && bar.belongsTo(user)) { %>
-      <a href="/bars/<%= bar.id %>/edit">Edit</a>
 
-      <form action="/bars/<%= bar.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <button>Delete</button>
-      </form>
-      <% } %>
-      <h2><%= bar.name %></h2>
+
+      <div class="jumbotron single-match">
+        <h2 class="match-title"><%= bar.name %></h2>
+        <span><%= bar.address.line1 %> </span><span><%= bar.address.line2 %></span>,<span> <%= bar.address.city %></span>,<span> <%= bar.address.postcode %></span>
+        <a href="<%= bar.website %>"><h4>View website</h4></a>
+
+        <div class="row user">
+
+          <% if(locals.isLoggedIn && bar.belongsTo(user)) { %>
+            <a href="/bars/<%= bar.id %>/edit" class="btn btn-outline-primary my-2 my-sm-0 edit-delete">Edit</a>
+
+            <form action="/bars/<%= bar.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="btn btn-outline-primary my-2 my-sm-0 edit-delete">Delete</button>
+            </form>
+            <% } %>
+
+        </div>
+      </div>
+
+
+
+
+
       <input type="hidden" name="address[lat]" value="<%= bar.address.lat %>">
       <input type="hidden" name="address[lng]" value="<%= bar.address.lng %>">
 
 
-      <div class="row">
+      <div class="row bar-images">
 
         <img src="<%= bar.imageOne %>" alt="bar.name" class="col-lg-6">
 
@@ -24,18 +40,9 @@
       </div>
 
       <div class="row bar-information">
-        <div class="description col-lg-6">
+        <div class="description">
           <p><%= bar.description %></p>
         </div>
-        <div class="addressInfo col-lg-3">
-          <span><%= bar.address.line1 %> </span><span><%= bar.address.line2 %></span>,</br><span><%= bar.address.city %></span>,</br><span><%= bar.address.postcode %></span>
-
-        </div>
-        <div class="contactInfo col-lg-3">
-          <p>+34 </p><p><%= bar.telephone %></p>
-          <a href="<%= bar.website %>"><h4>View website</h4></a>
-        </div>
-
       </div>
 
       <h3>Upcoming Fixtures</h3>
@@ -51,16 +58,15 @@
           <li class="list-group-item date"><span><%= moment(fixture.date).format('h:mm a') %> &#8226;</span><span> <%= moment(fixture.date).format('Do MMM YYYY') %></span></li>
           <li class="list-group-item team"><p><%= fixture.homeTeam %></p></li>
           <li class="list-group-item team"><p><%= fixture.awayTeam %></p></li>
-          <li class="list-group-item"><a href="/matches/<%= fixture.id %>">View Match</a></li>
-          <li class="list-group-item"><a href="/matches/<%= fixture.id %>/new">Show this match</a></li>
           </ul>
+          <a href="/matches/<%= fixture.id %>" class="btn btn-outline-primary my-2 my-sm-0">Match details</a>
           </div>
           <% }) %>
       </div>
 
 
       <section>
-        <h4>Reviews</h4>
+        <h3>Reviews</h3>
         <% bar.reviews.forEach((review) => { %>
           <p><%= review.content %></p>
           <small><%= review.createdBy.username %></small>

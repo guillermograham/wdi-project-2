@@ -1,21 +1,23 @@
-<h2>Matches</h2>
 <div class="container">
-  <div class="row">
-    <% matches.forEach((match) => { %>
-      <div class="card" style="width: 18rem;">
-        <div class="card-header competition">
-          <span><i class="fa fa-futbol-o" aria-hidden="true"></i> </span><span><%= match.competition %></span>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item date"><span><%= moment(match.date).format('h:mm a') %> &#8226;</span><span> <%= moment(match.date).format('Do MMM YYYY') %></span></li>
-          <li class="list-group-item team"><p><%= match.homeTeam %></p></li>
-          <li class="list-group-item team"><p><%= match.awayTeam %></p></li>
-        </ul>
-        <a href="/matches/<%= match.id %>" class="btn btn-outline-primary my-2 my-sm-0">View Match</a>
-        <% if(locals.isLoggedIn) { %> <a href="/matches/<%= match.id %>/new" class="btn btn-outline-primary my-2 my-sm-0">Show this match</a> <% } %>
+  <h2>Matches</h2>
+  <div class="grid-container">
+    <div class="row">
+      <% matches.forEach((match) => { %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-header competition">
+            <span><i class="fa fa-futbol-o" aria-hidden="true"></i> </span><span><%= match.competition %></span>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item date"><span><%= moment(match.date).format('h:mm a') %> &#8226;</span><span> <%= moment(match.date).format('Do MMM YYYY') %></span></li>
+            <li class="list-group-item team"><p><%= match.homeTeam %></p></li>
+            <li class="list-group-item team"><p><%= match.awayTeam %></p></li>
+          </ul>
+          <a href="/matches/<%= match.id %>" class="btn btn-outline-primary my-2 my-sm-0">Find bars showing this match</a>
+          <% if(locals.isLoggedIn) { %> <a href="/matches/<%= match.id %>/new" class="btn btn-outline-primary my-2 my-sm-0">Show this match</a> <% } %>
 
-      </div>
-    <% }) %>
+        </div>
+      <% }) %>
+    </div>
   </div>
 </div>
 <a href="/matches/new">Add new match</a>

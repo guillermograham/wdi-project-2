@@ -1,11 +1,36 @@
+<div class="container">
+  <h2>Search results:</h2>
+  <div class="row">
+    <% homeMatches.forEach((homeMatch) => { %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-header competition">
+          <span><i class="fa fa-futbol-o" aria-hidden="true"></i> </span><span><%= homeMatch.competition %></span>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item date"><span><%= moment(homeMatch.date).format('h:mm a') %> &#8226;</span><span> <%= moment(homeMatch.date).format('Do MMM YYYY') %></span></li>
+          <li class="list-group-item team"><p><%= homeMatch.homeTeam %></p></li>
+          <li class="list-group-item team"><p><%= homeMatch.awayTeam %></p></li>
+        </ul>
+        <a href="/matches/<%= homeMatch.id %>" class="btn btn-outline-primary my-2 my-sm-0">Find bars showing this match</a>
+        <% if(locals.isLoggedIn) { %> <a href="/matches/<%= homeMatch.id %>/new" class="btn btn-outline-primary my-2 my-sm-0">Show this match</a> <% } %>
 
-<% homeMatches.forEach((homeMatch) => { %>
-  <p><%= homeMatch.homeTeam %></p>
-  <p><%= homeMatch.awayTeam %></p>
-  <p><%= homeMatch.date %></p>
-  <a href="/matches/<%= homeMatch.id %>">View Match</a>
-<% }) %>
+      </div>
+    <% }) %>
 
-<% awayMatches.forEach((awayMatch) => { %>
-  <p><%= awayMatch %></p>
-<% }) %>
+    <% awayMatches.forEach((awayMatch) => { %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-header competition">
+          <span><i class="fa fa-futbol-o" aria-hidden="true"></i> </span><span><%= awayMatch.competition %></span>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item date"><span><%= moment(awayMatch.date).format('h:mm a') %> &#8226;</span><span> <%= moment(awayMatch.date).format('Do MMM YYYY') %></span></li>
+          <li class="list-group-item team"><p><%= awayMatch.homeTeam %></p></li>
+          <li class="list-group-item team"><p><%= awayMatch.awayTeam %></p></li>
+        </ul>
+        <a href="/matches/<%= awayMatch.id %>" class="btn btn-outline-primary my-2 my-sm-0">Find bars showing this match</a>
+        <% if(locals.isLoggedIn) { %> <a href="/matches/<%= awayMatch.id %>/new" class="btn btn-outline-primary my-2 my-sm-0">Show this match</a> <% } %>
+
+      </div>
+    <% }) %>
+  </div>
+</div>
