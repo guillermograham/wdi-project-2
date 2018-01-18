@@ -1,8 +1,26 @@
-<h1>Match</h1>
+<div class="container">
+  <div class="jumbotron single-match">
+    <h2 class="match-title"><%= match.homeTeam %> vs <%= match.awayTeam %></h2>
+    <span><%= match.competition %></span></br>
+    <span><%= moment(match.date).format('h:mm a') %> &#8226;</span><span> <%= moment(match.date).format('Do MMM YYYY') %></span>
+  </div>
+  <h3>Bars showing this match</h3>
+  <div class="row">
 
-<%= match %>
-<%= bars %>
+    <% bars.forEach(bar => { %>
 
-<% bars.forEach(bar => { %>
-  <a href="/bars/<%= bar.id %>"><h2><%= bar.name %></h2></a>
-<% }) %>
+      <div class="card bar-card" style="width: 18rem;">
+        <img class="card-img-top bar-thumbnail" src="<%= bar.imageOne %>" alt="Card image cap">
+        <div class="card-body barIndex">
+          <h5 class="card-title"><%= bar.name %></h5>
+          <a href="/bars/<%= bar.id %>" class="btn btn-outline-primary my-2 my-sm-0">View</a>
+        </div>
+      </div>
+
+    <% }) %>
+
+  </div>
+
+
+
+</div>
