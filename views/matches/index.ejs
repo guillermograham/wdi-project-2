@@ -10,9 +10,10 @@
           <li class="list-group-item date"><span><%= moment(match.date).format('h:mm a') %> &#8226;</span><span> <%= moment(match.date).format('Do MMM YYYY') %></span></li>
           <li class="list-group-item team"><p><%= match.homeTeam %></p></li>
           <li class="list-group-item team"><p><%= match.awayTeam %></p></li>
-          <li class="list-group-item"><a href="/matches/<%= match.id %>">View Match</a></li>
-          <li class="list-group-item"><a href="/matches/<%= match.id %>/new">Show this match</a></li>
         </ul>
+        <a href="/matches/<%= match.id %>" class="btn btn-outline-primary my-2 my-sm-0">View Match</a>
+        <% if(locals.isLoggedIn) { %> <a href="/matches/<%= match.id %>/new" class="btn btn-outline-primary my-2 my-sm-0">Show this match</a> <% } %>
+
       </div>
     <% }) %>
   </div>
