@@ -65,10 +65,10 @@ h3 {
   justify-content: center;;
 }
 
-.btn {
-  color: #95B8D1;
-  border-color: #95B8D1;
-}
+// .btn {
+//   color: #95B8D1;
+//   border-color: #95B8D1;
+// }
 
 .card {
   margin: 20px;
@@ -76,10 +76,19 @@ h3 {
 
 .card-body {
   min-height: 75px;
+  text-align: center;
 }
 
 .card-header {
   background-color: #8CAAA2;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.card-text {
+  color: grey;
+  text-align: justify;
 }
 
 .competition {
@@ -102,6 +111,10 @@ h3 {
   width: 200px;
 }
 
+.footer {
+  height: 60px;
+}
+
 .front-page {
   display: flex;
   justify-content: space-between;
@@ -113,6 +126,7 @@ h3 {
 
 .jumbotron {
   background-color: #8CAAA2;
+  color: white;
 }
 
 .team {
@@ -122,7 +136,7 @@ h3 {
 
 .main-search {
   color: white;
-  background-color: #8CAAA2; 
+  background-color: #8CAAA2;
   border-color: white;
 }
 
@@ -144,4 +158,8 @@ h3 {
 
 .navbar {
   background: #C7E5DB;
+}
+
+.who-search {
+  color: white;
 }
