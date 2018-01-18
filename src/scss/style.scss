@@ -36,8 +36,18 @@ h3 {
 }
 
 .bar-thumbnail {
-  height: 200px;
-  margin-top: 15px;
+  height: 180px;
+  width: 286px;
+}
+
+.bar-card {
+  min-height: 18rem;
+}
+
+.barIndex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
 }
 
 .card {
@@ -45,7 +55,7 @@ h3 {
 }
 
 .card-body {
-  height: 75px;
+  min-height: 75px;
 }
 
 .competition {

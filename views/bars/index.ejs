@@ -2,12 +2,17 @@
   <h2>Bars</h2>
   <div class="row">
       <% bars.forEach((bar) => { %>
-        <div class="card col-lg-3">
-          <img class="card-img-top bar-thumbnail" src="<%= bar.imageOne %>" alt="<%= bar.name %>">
-          <div class="card-body">
-            <a href="/bars/<%= bar.id %>"><h4> <%= bar.name %> </h4></a>
+
+
+        <div class="card bar-card" style="width: 18rem;">
+          <img class="card-img-top bar-thumbnail" src="<%= bar.imageOne %>" alt="Card image cap">
+          <div class="card-body barIndex">
+            <h5 class="card-title"><%= bar.name %></h5>
+            <a href="/bars/<%= bar.id %>" class="btn btn-outline-primary my-2 my-sm-0">View</a>
           </div>
         </div>
+
+
       <% }); %>
   </div>
 </div>
