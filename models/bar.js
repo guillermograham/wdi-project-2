@@ -30,7 +30,7 @@ const barSchema = new mongoose.Schema({
   website: String,
   // facebook: String,
   // twitter: String,
-  // telephone: Number,
+  telephone: String,
   // email: String,
   description: String,
   // metro: String,
@@ -57,7 +57,7 @@ barSchema.methods.belongsTo = function belongsTo(user) {
   //'user' is the user object that we will pass this method (the user who is logged in)
   // will return a boolean value
   if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
-  return user.id === this.createdBy.toString();  
+  return user.id === this.createdBy.toString();
 };
 
 module.exports = mongoose.model('Bar', barSchema);

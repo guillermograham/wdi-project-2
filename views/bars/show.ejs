@@ -9,15 +9,38 @@
       </form>
       <% } %>
       <h2><%= bar.name %></h2>
-      <span><%= bar.address.line1 %></span> <span><%= bar.address.line2 %></span>, <span><%= bar.address.city %></span>, <span><%= bar.address.postcode %></span>
-      <a href="<%= bar.website %>"><h4>Website</h4></a>
-      <img src="<%= bar.imageOne %>" alt="bar.name">
+      <input type="hidden" name="address[lat]" value="<%= bar.address.lat %>">
+      <input type="hidden" name="address[lng]" value="<%= bar.address.lng %>">
 
-      <div class="map">
+
+      <div class="row">
+
+        <img src="<%= bar.imageOne %>" alt="bar.name" class="col-lg-6">
+
+        <div class="map col-lg-6">
+
+        </div>
 
       </div>
 
-      <p><%= bar.description %></p>
+      <div class="row bar-information">
+        <div class="description col-lg-6">
+          <p><%= bar.description %></p>
+        </div>
+        <div class="addressInfo col-lg-3">
+          <span><%= bar.address.line1 %> </span><span><%= bar.address.line2 %></span>,</br><span><%= bar.address.city %></span>,</br><span><%= bar.address.postcode %></span>
+
+        </div>
+        <div class="contactInfo col-lg-3">
+          <p>+34 </p><p><%= bar.telephone %></p>
+          <a href="<%= bar.website %>"><h4>View website</h4></a>
+        </div>
+
+      </div>
+
+      <h3>Upcoming Fixtures</h3>
+
+
       <div class="row">
         <% bar.fixtures.forEach((fixture) => { %>
           <div class="card" style="width: 18rem;">
