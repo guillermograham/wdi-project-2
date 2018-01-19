@@ -5,16 +5,16 @@
       <div class="jumbotron single-match">
         <h2 class="match-title"><%= bar.name %></h2>
         <span><%= bar.address.line1 %> </span><span><%= bar.address.line2 %></span>,<span> <%= bar.address.city %></span>,<span> <%= bar.address.postcode %></span>
-        <a href="<%= bar.website %>"><h4>View website</h4></a>
+        <a href="<%= bar.website %>"><h4 class="link">View website</h4></a>
 
         <div class="row user">
 
           <% if(locals.isLoggedIn && bar.belongsTo(user)) { %>
-            <a href="/bars/<%= bar.id %>/edit" class="btn btn-outline-primary my-2 my-sm-0 edit-delete">Edit</a>
+            <a href="/bars/<%= bar.id %>/edit" class="btn btn-warning edit-delete">Edit</a>
 
             <form action="/bars/<%= bar.id %>" method="POST">
             <input type="hidden" name="_method" value="DELETE">
-            <button class="btn btn-outline-primary my-2 my-sm-0 edit-delete">Delete</button>
+            <button class="btn btn-danger edit-delete">Delete</button>
             </form>
             <% } %>
 
@@ -68,25 +68,40 @@
       <section>
         <h3>Reviews</h3>
         <% bar.reviews.forEach((review) => { %>
-          <p><%= review.content %></p>
-          <small><%= review.createdBy.username %></small>
 
-          <% if(locals.isLoggedIn && review.belongsTo(user)) { %>
-            <form method="POST" action="/bars/<%= bar.id %>/reviews/<%= review.id %>">
-              <input type="hidden" name="_method" value="DELETE">
-              <button>Delete</button>
-            </form>
-          <% } %>
-          <% }) %>
+          <div class="row review-row">
+            <div class="col-lg-3 username-box"
+              <p id="review-username"><%= review.createdBy.username %></p>
+            </div>
+            <div class="col-lg-5 content-box">
+              <p id="content"><%= review.content %></p>
+              <% if(locals.isLoggedIn && review.belongsTo(user)) { %>
+                <form method="POST" action="/bars/<%= bar.id %>/reviews/<%= review.id %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button class="btn btn-outline-danger btn-sm delete-button"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete comment</button>
+                </form>
+              <% } %>
+            </div>
+          </div>
+        <% }) %>
       </section>
 
       <% if(locals.isLoggedIn) { %>
+
         <section>
-          <h4>Write a review</h4>
-          <form method="POST" action="/bars/<%= bar.id %>/reviews">
-            <textarea name="content" id="content" placeholder="Review"></textarea>
-            <button class="button">Write a review</button>
-          </form>
+          <div class="row col-lg-12">
+
+            <div class="col-lg-3 empty"
+              <p class="review-content">review</p>
+            </div>
+
+            <div class="col-lg-5 write-review">
+              <form method="POST" action="/bars/<%= bar.id %>/reviews">
+                <textarea name="content" id="content" placeholder="Write a review..." class="form-control write-review-input"></textarea>
+                <button class="btn btn-outline-primary btn-sm">Write a review</button>
+              </form>
+            </div>
+          </div>
         </section>
       <% } %>
   </div>

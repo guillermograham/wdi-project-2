@@ -13,7 +13,7 @@
             <li class="list-group-item team"><p><%= match.awayTeam %></p></li>
           </ul>
           <a href="/matches/<%= match.id %>" class="btn btn-outline-primary my-2 my-sm-0">Find bars showing this match</a>
-          <% if(locals.isLoggedIn) { %> <a href="/matches/<%= match.id %>/new" class="btn btn-outline-primary my-2 my-sm-0">Show this match</a> <% } %>
+          <% if(locals.isLoggedIn) { %> <a href="/matches/<%= match.id %>/new" class="btn btn-outline-secondary my-2 my-sm-0">Show this match in my bar</a> <% } %>
 
         </div>
       <% }) %>

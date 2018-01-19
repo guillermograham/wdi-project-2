@@ -129,6 +129,12 @@ h3 {
   color: white;
 }
 
+.link {
+  color: grey;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
 .team {
   font-size: 20px;
   text-align: center;
@@ -140,6 +146,10 @@ h3 {
   border-color: white;
 }
 
+.match-info {
+  color: grey;
+}
+
 .match-title {
   margin-top: 10px;
   margin-bottom: 0px;
@@ -149,6 +159,43 @@ h3 {
   padding: 1rem 2rem;
 }
 
+.username-box {
+  background-color: #8CAAA2;
+  border-radius: 3px;
+  color:white;
+  margin-left: 15px;
+}
+
+.content-box {
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin-left: 15px;
+  min-height: 150px;
+}
+
+.empty {
+  color: white;
+  min-height: 150px;
+}
+
+.review-content {
+  margin-bottom: 80px;
+}
+
+.delete-button {
+  margin-left: -15px;
+  margin-top: 60px;
+}
+
+.write-review {
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+.review-row {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 
 .map {
@@ -162,4 +209,12 @@ h3 {
 
 .who-search {
   color: white;
+}
+
+#review-username {
+  padding-top: 15px;
+}
+
+#content {
+  padding-top: 15px;
 }

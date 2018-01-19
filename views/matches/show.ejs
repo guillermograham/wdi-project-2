@@ -1,8 +1,8 @@
 <div class="container">
   <div class="jumbotron single-match">
     <h2 class="match-title"><%= match.homeTeam %> vs <%= match.awayTeam %></h2>
-    <span><%= match.competition %></span></br>
-    <span><%= moment(match.date).format('h:mm a') %> &#8226;</span><span> <%= moment(match.date).format('Do MMM YYYY') %></span>
+    <div class="match-info"><span><%= match.competition %></span></br>
+    <span><%= moment(match.date).format('h:mm a') %> &#8226;</span><span> <%= moment(match.date).format('Do MMM YYYY') %></span></div>
   </div>
   <h3>Bars showing this match</h3>
   <div class="row">
