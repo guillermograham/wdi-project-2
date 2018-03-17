@@ -86,18 +86,21 @@ div {
 @media only screen and (max-width: 900px) {
 
   .jumbotron {
-    height: 350px;
+    height: 300px;
     padding-top: 30px;
-    .jumbotron-inner-container {
-      h2 {
-        &.banner-title {
-          margin-bottom: 0px;
-          margin-top: 0px;
+    div {
+      &.jumbotron-inner-container {
+        width: 90%;
+        h2 {
+          &.banner-title {
+            margin-bottom: 0px;
+            margin-top: 0px;
+          }
         }
-      }
-      p {
-        &.lead {
-          display: none;
+        p {
+          &.lead {
+            display: none;
+          }
         }
       }
     }
