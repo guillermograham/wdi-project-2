@@ -1,0 +1,52 @@
+div {
+  &.single-match {
+    margin-bottom: 0px;
+  }
+}
+
+.description {
+  margin-bottom: 0px;
+  padding: 15px;
+}
+
+div {
+  &.bar-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .bar-photo {
+      height: 350px;
+      margin: 0 auto;
+      width: 400px;
+    }
+    .map {
+      height: 350px;
+      margin: 0 auto;
+      width:400px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+
+  div {
+    &.single-match {
+      height: 150px;
+    }
+  }
+
+  div {
+    &.bar-images {
+      .bar-photo {
+        height: 325px;
+        margin: 0 auto;
+        width: 325px;
+      }
+      .map {
+        height: 325px;
+        margin: 0 auto;
+        width: 325px;
+      }
+    }
+  }
+}

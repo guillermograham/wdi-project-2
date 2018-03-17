@@ -7,18 +7,22 @@
         <span><%= bar.address.line1 %> </span><span><%= bar.address.line2 %></span>,<span> <%= bar.address.city %></span>,<span> <%= bar.address.postcode %></span>
         <a href="<%= bar.website %>"><h4 class="link">View website</h4></a>
 
-        <div class="row user">
+
 
           <% if(locals.isLoggedIn && bar.belongsTo(user)) { %>
+
+            <div class="row user">
             <a href="/bars/<%= bar.id %>/edit" class="btn btn-warning edit-delete">Edit</a>
 
             <form action="/bars/<%= bar.id %>" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <button class="btn btn-danger edit-delete">Delete</button>
             </form>
+
+              </div>
             <% } %>
 
-        </div>
+
       </div>
 
 
@@ -27,11 +31,18 @@
 
       <input type="hidden" name="address[lat]" value="<%= bar.address.lat %>">
       <input type="hidden" name="address[lng]" value="<%= bar.address.lng %>">
+      <hr>
 
+      <%# <div class="row bar-information"> %>
+        <div class="description">
+          <p><%= bar.description %></p>
+        </div>
+      <%# </div> %>
+      <hr>
 
       <div class="row bar-images">
 
-        <img src="<%= bar.imageOne %>" alt="bar.name" class="col-lg-6">
+        <img src="<%= bar.imageOne %>" alt="bar.name" class="bar-photo">
 
         <div class="map col-lg-6">
 
@@ -39,18 +50,14 @@
 
       </div>
 
-      <div class="row bar-information">
-        <div class="description">
-          <p><%= bar.description %></p>
-        </div>
-      </div>
 
+      <hr>
       <h3>Upcoming Fixtures</h3>
 
 
       <div class="row">
         <% bar.fixtures.forEach((fixture) => { %>
-          <div class="card" style="width: 18rem;">
+          <div class="card match-card" style="width: 18rem;">
           <div class="card-header competition">
           <span><i class="fa fa-futbol-o" aria-hidden="true"></i> </span><span><%= fixture.competition %></span>
           </div>
@@ -63,6 +70,7 @@
           </div>
           <% }) %>
       </div>
+      <hr>
 
 
       <section>
