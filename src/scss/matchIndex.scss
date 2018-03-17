@@ -1,5 +1,23 @@
 div {
   &.match-card {
     width: 18rem;
+    div {
+      &.competition {
+        text-align: center;
+      }
+    }
+    ul {
+      li {
+        &.date {
+          color: grey;
+          font-size: 12px;
+          text-align: center;
+        }
+        &.team {
+          font-size: 20px;
+          text-align: center;
+        }
+      }
+    }
   }
 }
