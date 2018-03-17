@@ -12,3 +12,19 @@ nav {
     }
   }
 }
+
+@media only screen and (max-width: 640px) {
+
+  nav {
+    a {
+      h1 {
+        font-size: 20px;
+      }
+      &.nav-link {
+        color: grey;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+      }
+    }
+  }
+}
