@@ -2,10 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab" rel="stylesheet">
   <title>WDI Project 2</title>
   <% include ./partials/_stylesheets.ejs %>
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js" charset="utf-8"></script>
   <script src="https://use.fontawesome.com/1b472161ea.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_ld5KVgbsxPAe90D4MOBw25PF84A1-BI"></script>
@@ -18,7 +17,7 @@
 <body>
 
   <% include ./partials/_navbar %>
-  <main class="container">
+  <main class="">
     <% for(const type in messages) { %>
       <p class="alert alert-<%= type %>"><%= messages[type] %></p>
       <% } %>

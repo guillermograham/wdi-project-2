@@ -1,8 +1,14 @@
 nav {
   a {
     h1 {
+      color: black;
       font-family: 'Roboto Slab', serif;
       font-weight: bold;
+    }
+    &.nav-link {
+      color: grey;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 18px;
     }
   }
 }
