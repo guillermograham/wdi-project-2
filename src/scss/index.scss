@@ -1,29 +1,106 @@
+div {
+  &.jumbotron {
+    background-color: #8CAAA2;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: light;
+    .jumbotron-inner-container {
+      margin: 0 auto;
+      width: 80%;
+    }
+    h2 {
+      &.banner-title {
+        font-size: 60px;
+      }
+    }
+    .who-search {
+      color: white;
+    }
+  }
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto;
-  width: 1200px;
+  width: 80%;
+  .card {
+    margin: 0 auto;
+    width: 350px;
+    .card-body {
+      min-height: 75px;
+      text-align: center;
+    }
+    .card-header {
+      background-color: #8CAAA2;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .card-text {
+      color: grey;
+      min-height: 80px;
+      text-align: justify;
+    }
+  }
 }
 
-.card {
-  margin: 0 auto;
-  width: 350px;
+@media only screen and (max-width: 1150px) {
+
+  .jumbotron-inner-container {
+    p {
+      &.lead {
+        font-size: 20px;
+        width: 80%;
+      }
+    }
+  }
+
+  .card-container {
+    width: 800px;
+    .card {
+      margin: 0 auto;
+      width: 350px;
+      .card-body {
+        min-height: 75px;
+        text-align: center;
+      }
+      .card-header {
+        background-color: #8CAAA2;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .card-text {
+        color: grey;
+        min-height: 80px;
+        text-align: justify;
+      }
+    }
+  }
 }
 
-.card-body {
-  min-height: 75px;
-  text-align: center;
-}
+@media only screen and (max-width: 900px) {
 
-.card-header {
-  background-color: #8CAAA2;
-  color: white;
-  text-align: center;
-  text-transform: uppercase;
-}
+  .jumbotron {
+    height: 350px;
+    padding-top: 30px;
+    .jumbotron-inner-container {
+      h2 {
+        &.banner-title {
+          margin-bottom: 0px;
+          margin-top: 0px;
+        }
+      }
+      p {
+        &.lead {
+          display: none;
+        }
+      }
+    }
+  }
 
-.card-text {
-  color: grey;
-  text-align: justify;
 }
