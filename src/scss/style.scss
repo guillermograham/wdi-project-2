@@ -1,5 +1,6 @@
 // import scss partials here
 @import "navbar";
+@import "index";
 
 body {
   font-family: 'Helvetica', sans-serif;
@@ -74,26 +75,7 @@ h3 {
 //   border-color: #95B8D1;
 // }
 
-.card {
-  margin: 20px;
-}
 
-.card-body {
-  min-height: 75px;
-  text-align: center;
-}
-
-.card-header {
-  background-color: #8CAAA2;
-  color: white;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.card-text {
-  color: grey;
-  text-align: justify;
-}
 
 .competition {
   text-align: center;
