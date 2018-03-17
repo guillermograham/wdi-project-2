@@ -4,7 +4,9 @@
 
       <div class="jumbotron single-match">
         <h2 class="match-title"><%= bar.name %></h2>
-        <span><%= bar.address.line1 %> </span><span><%= bar.address.line2 %></span>,<span> <%= bar.address.city %></span>,<span> <%= bar.address.postcode %></span>
+        <div class="bar-address">
+          <span><%= bar.address.line1 %> </span><span><%= bar.address.line2 %></span>,<span> <%= bar.address.city %></span>,<span> <%= bar.address.postcode %></span>
+        </div>
         <a href="<%= bar.website %>"><h4 class="link">View website</h4></a>
 
 
@@ -52,21 +54,21 @@
 
 
       <hr>
-      <h3>Upcoming Fixtures</h3>
+      <h3 class="fixtures-title">Upcoming Fixtures</h3>
 
 
       <div class="row">
         <% bar.fixtures.forEach((fixture) => { %>
-          <div class="card match-card" style="width: 18rem;">
-          <div class="card-header competition">
-          <span><i class="fa fa-futbol-o" aria-hidden="true"></i> </span><span><%= fixture.competition %></span>
-          </div>
-          <ul class="list-group list-group-flush">
-          <li class="list-group-item date"><span><%= moment(fixture.date).format('h:mm a') %> &#8226;</span><span> <%= moment(fixture.date).format('Do MMM YYYY') %></span></li>
-          <li class="list-group-item team"><p><%= fixture.homeTeam %></p></li>
-          <li class="list-group-item team"><p><%= fixture.awayTeam %></p></li>
-          </ul>
-          <a href="/matches/<%= fixture.id %>" class="btn btn-outline-primary my-2 my-sm-0">Match details</a>
+          <div class="card match-card">
+            <div class="card-header competition">
+              <span><i class="fa fa-futbol-o" aria-hidden="true"></i> </span><span><%= fixture.competition %></span>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item date"><span><%= moment(fixture.date).format('h:mm a') %> &#8226;</span><span> <%= moment(fixture.date).format('Do MMM YYYY') %></span></li>
+              <li class="list-group-item team"><p><%= fixture.homeTeam %></p></li>
+              <li class="list-group-item team"><p><%= fixture.awayTeam %></p></li>
+            </ul>
+            <a href="/matches/<%= fixture.id %>" class="btn btn-outline-primary my-2 my-sm-0">Match details</a>
           </div>
           <% }) %>
       </div>
@@ -74,14 +76,14 @@
 
 
       <section>
-        <h3>Reviews</h3>
+        <h3 class="reviews-title">Reviews</h3>
         <% bar.reviews.forEach((review) => { %>
 
           <div class="row review-row">
-            <div class="col-lg-3 username-box"
-              <p id="review-username"><%= review.createdBy.username %></p>
+            <div class="col-3 username-box">
+              <p class="review-username"><%= review.createdBy.username %></p>
             </div>
-            <div class="col-lg-5 content-box">
+            <div class="col-7 content-box">
               <p id="content"><%= review.content %></p>
               <% if(locals.isLoggedIn && review.belongsTo(user)) { %>
                 <form method="POST" action="/bars/<%= bar.id %>/reviews/<%= review.id %>">
@@ -95,21 +97,17 @@
       </section>
 
       <% if(locals.isLoggedIn) { %>
-
+        <hr>
         <section>
-          <div class="row col-lg-12">
-
-            <div class="col-lg-3 empty"
-              <p class="review-content">review</p>
+          <form method="POST" action="/bars/<%= bar.id %>/reviews">
+            <div class="form-group">
+              <textarea name="content" id="content" placeholder="Write a review..." class="form-control write-review-input" rows="3"></textarea>
             </div>
+            <button class="btn btn-outline-primary btn-sm btn-block">Write a review</button>
+          </form>
 
-            <div class="col-lg-5 write-review">
-              <form method="POST" action="/bars/<%= bar.id %>/reviews">
-                <textarea name="content" id="content" placeholder="Write a review..." class="form-control write-review-input"></textarea>
-                <button class="btn btn-outline-primary btn-sm">Write a review</button>
-              </form>
-            </div>
-          </div>
+
+
         </section>
       <% } %>
   </div>

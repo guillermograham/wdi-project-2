@@ -2,6 +2,13 @@ div {
   &.single-match {
     margin-bottom: 0px;
   }
+  h4 {
+    &.link {
+      color: grey;
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .description {
@@ -15,14 +22,48 @@ div {
     flex-wrap: wrap;
     justify-content: space-around;
     .bar-photo {
+      border-radius: 3px;
       height: 350px;
       margin: 0 auto;
       width: 400px;
     }
     .map {
+      border-radius: 3px;
       height: 350px;
       margin: 0 auto;
       width:400px;
+    }
+  }
+}
+
+div {
+  &.row {
+    div {
+      &.match-card {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        width: 18rem;
+      }
+    }
+  }
+}
+
+div {
+  &.review-row {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    div {
+      &.username-box {
+        background-color: #8CAAA2;
+        border-radius: 3px;
+        color: white;
+        margin-left: 15px;
+        p {
+          &.review-username {
+            padding-top: 15px;
+          }
+        }
+      }
     }
   }
 }
@@ -48,5 +89,81 @@ div {
         width: 325px;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+
+  div {
+    &.single-match {
+      height: 150px;
+      h2 {
+        &.match-title {
+          font-size: 20px;
+        }
+      }
+      div {
+        &.bar-address {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .description {
+    font-size: 14px;
+    padding: 0px;
+  }
+
+  div {
+    &.bar-images {
+      .bar-photo {
+        height: 280px;
+        margin-bottom: 10px;
+        width: 280px;
+      }
+      .map {
+        height: 280px;
+        width: 280px;
+      }
+    }
+  }
+
+  h3 {
+    &.fixtures-title {
+      font-size: 18px;
+    }
+    &.reviews-title {
+      font-size: 18px;
+    }
+  }
+
+  div {
+    &.row {
+      div {
+        &.match-card {
+          margin: 0 auto;
+          margin-bottom: 20px;
+          width: 18rem;
+          ul {
+            li {
+              &.team {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  p {
+    &.review-username {
+      font-size: 10px;;
+    }
+  }
+
+  #content {
+    font-size: 10px;
   }
 }
