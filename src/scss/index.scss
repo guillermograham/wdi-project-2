@@ -105,5 +105,30 @@ div {
       }
     }
   }
+}
 
+@media only screen and (max-width: 640px) {
+
+  div {
+    &.jumbotron {
+      height: 200px;
+      .jumbotron-inner-container {
+        margin: 0 auto;
+        width: 80%;
+      }
+      h2 {
+        &.banner-title {
+          display: none;
+        }
+      }
+      hr {
+        &.my-4 {
+          display: none;
+        }
+      }
+      .who-search {
+        color: white;
+      }
+    }
+  }
 }
