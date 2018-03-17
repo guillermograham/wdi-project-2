@@ -1,6 +1,7 @@
 // import scss partials here
 @import "navbar";
 @import "index";
+@import "barsIndex";
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -50,25 +51,7 @@ h3 {
   justify-content: space-around;
 }
 
-.bar-thumbnail {
-  height: 180px;
-  width: 286px;
-}
 
-.bar-card {
-  min-height: 18rem;
-}
-
-.bar-index {
-  display: flex;
-  justify-content: space-between;
-}
-
-.barIndex {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;;
-}
 
 // .btn {
 //   color: #95B8D1;
@@ -105,11 +88,6 @@ h3 {
   display: flex;
   justify-content: space-between;
 }
-
-.grid-container {
-  margin: 0 auto;
-}
-
 
 
 .link {

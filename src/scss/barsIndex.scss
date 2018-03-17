@@ -1,0 +1,25 @@
+div {
+  &.grid-container {
+    margin: 0 auto;
+    margin-top: 50px;
+    .bar-index {
+      display: flex;
+      justify-content: space-between;
+      div {
+        &.bar-card {
+          min-height: 18rem;
+          width: 18rem;
+          .bar-thumbnail {
+            height: 180px;
+            width: 286px;
+          }
+          .bar-card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;;
+          }
+        }
+      }
+    }
+  }
+}
