@@ -3,14 +3,15 @@
     <div class="row bar-index">
         <% bars.forEach((bar) => { %>
 
-
+<a href="/bars/<%= bar.id %>" class="index-link">
           <div class="card bar-card">
             <img class="card-img-top bar-thumbnail" src="<%= bar.imageOne %>" alt="Card image cap">
             <div class="card-body bar-card-content">
               <h5 class="card-title"><%= bar.name %></h5>
-              <a href="/bars/<%= bar.id %>" class="btn btn-outline-primary my-2 my-sm-0">View</a>
+
             </div>
           </div>
+        </a>
 
 
         <% }); %>

@@ -5,8 +5,18 @@ div {
     .bar-index {
       display: flex;
       justify-content: space-between;
+      a {
+        &.index-link {
+          margin: 0 auto;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
       div {
         &.bar-card {
+          margin: 0 auto;
+          margin-bottom: 20px;
           min-height: 18rem;
           width: 18rem;
           .bar-thumbnail {
@@ -16,7 +26,13 @@ div {
           .bar-card-content {
             display: flex;
             flex-direction: column;
-            justify-content: center;;
+            justify-content: center;
+            h5 {
+              &.card-title {
+                color: black;
+                text-align: center;
+              }
+            }
           }
         }
       }
