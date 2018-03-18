@@ -1,0 +1,29 @@
+div {
+  &.match-show {
+    display: flex;
+    justify-content: space-around;
+    div {
+      &.bar-card {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        min-height: 18rem;
+        width: 18rem;
+        .bar-thumbnail {
+          height: 180px;
+          width: 286px;
+        }
+        .bar-card-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          h5 {
+            &.card-title {
+              color: black;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
