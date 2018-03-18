@@ -4,7 +4,7 @@
     <div class="match-info"><span><%= match.competition %></span></br>
     <span><%= moment(match.date).format('h:mm a') %> &#8226;</span><span> <%= moment(match.date).format('Do MMM YYYY') %></span></div>
   </div>
-  <h3>Bars showing this match</h3>
+  <h3 class="matches-show-title">Bars showing this match:</h3>
   <div class="row match-show">
 
 
@@ -22,6 +22,10 @@
               </a>
 
     <% }) %>
+
+    <% if (!bars.length) { %>
+      <p class="message">There are no bars showing this match</p>
+    <% } %>
 
   </div>
 
