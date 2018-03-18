@@ -1,4 +1,5 @@
 // import scss partials here
+@import "buttons";
 @import "navbar";
 @import "index";
 @import "barsIndex";
@@ -6,6 +7,8 @@
 @import "matchIndex";
 @import "matchesShow";
 @import "login";
+
+$brand-primary: #8D80AD;
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -28,27 +31,27 @@ body {
 //   background-color: #C7E5DB;
 // }
 
-.addressInfo {
-  color: black;
-  font-size: 14px;
-  span {
-    font-size: inherit;
-  }
-  h4 {
-    color:inherit;
-    font-size: inherit;
-  }
-}
+// .addressInfo {
+//   color: black;
+//   font-size: 14px;
+//   span {
+//     font-size: inherit;
+//   }
+//   h4 {
+//     color:inherit;
+//     font-size: inherit;
+//   }
+// }
 
-h3 {
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
+// h3 {
+//   margin-top: 30px;
+//   margin-bottom: 15px;
+// }
 
-.bar-information {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
+// .bar-information {
+//   margin-top: 40px;
+//   margin-bottom: 40px;
+// }
 
 
 
@@ -136,15 +139,15 @@ h3 {
   margin-top: 20px;
 }
 
+// .btn {
+//   background-color: #39A0ED;
+//   border: 1px solid #21EFA7;
+// }
 
 
 
 
 
-.navbar {
-  background: #C7E5DB;
-  color: grey;
-}
 
 
 

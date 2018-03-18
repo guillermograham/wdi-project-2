@@ -1,6 +1,8 @@
 div {
   &.jumbotron {
-    background-color: #8CAAA2;
+    background: #C9E9FB;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #21EFA7, #C9E9FB);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #21EFA7, #C9E9FB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
     font-family: 'Open Sans', sans-serif;
     font-weight: light;
@@ -13,8 +15,14 @@ div {
         font-size: 60px;
       }
     }
+    hr {
+      border-top: 1px solid white;
+    }
     .who-search {
       color: white;
+    }
+    .main-button {
+      width: 150px;
     }
   }
 }
@@ -33,7 +41,7 @@ div {
       text-align: center;
     }
     .card-header {
-      background-color: #8CAAA2;
+      background-color: #21EFA7;
       color: white;
       font-weight: bold;
       text-align: center;
@@ -43,6 +51,9 @@ div {
       color: grey;
       min-height: 80px;
       text-align: justify;
+    }
+    .main-button-outline {
+      width: 150px;
     }
   }
 }
@@ -66,13 +77,6 @@ div {
       .card-body {
         min-height: 75px;
         text-align: center;
-      }
-      .card-header {
-        background-color: #8CAAA2;
-        color: white;
-        font-weight: bold;
-        text-align: center;
-        text-transform: uppercase;
       }
       .card-text {
         color: grey;
